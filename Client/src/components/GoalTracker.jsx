@@ -7,11 +7,13 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Target, TrendingDown, Calendar, Award } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import { useAchievements } from "@/hooks/use-achievements";
 
 export default function GoalTracker() {
     const [showForm, setShowForm] = useState(false);
     const [targetAmount, setTargetAmount] = useState("");
     const [targetPeriod, setTargetPeriod] = useState("monthly");
+    const { checkGoalAchievement, checkMilestoneAchievement } = useAchievements();
 
     // Mock current goals
     const [goals, setGoals] = useState([
@@ -46,10 +48,27 @@ export default function GoalTracker() {
             return;
         }
 
+        // Add new goal to the list
+        const newGoal = {
+            id: goals.length + 1,
+            type: targetPeriod.charAt(0).toUpperCase() + targetPeriod.slice(1),
+            target: parseFloat(targetAmount),
+            current: 124.5, // Mock current value
+            period: `This ${targetPeriod}`,
+            icon: Target,
+            color: "text-accent",
+        };
+
+        setGoals([...goals, newGoal]);
+
         toast({
             title: "Goal set!",
             description: `Your ${targetPeriod} carbon reduction target has been set.`,
         });
+
+        // Check for achievements
+        checkGoalAchievement(goals.length + 1);
+
         setShowForm(false);
         setTargetAmount("");
     };
