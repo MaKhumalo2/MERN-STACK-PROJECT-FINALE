@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* EcoTrack Design System - Sustainability-focused */
+
+@layer base {
+  :root {
+    --background: 150 20% 98%;
+    --foreground: 150 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 15% 15%;
+
+    --primary: 150 60% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 150 50% 45%;
+
+    --secondary: 150 20% 92%;
+    --secondary-foreground: 150 15% 15%;
+
+    --muted: 150 15% 94%;
+    --muted-foreground: 150 10% 45%;
+
+    --accent: 35 85% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 150 60% 45%;
+    --warning: 35 85% 55%;
+    --error: 0 70% 50%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 20% 88%;
+    --input: 150 20% 88%;
+    --ring: 150 60% 35%;
+
+    --radius: 0.75rem;
+
+    --chart-1: 150 60% 35%;
+    --chart-2: 35 85% 55%;
+    --chart-3: 200 70% 45%;
+    --chart-4: 280 65% 50%;
+    --chart-5: 25 75% 50%;
+
+    --gradient-eco: linear-gradient(135deg, hsl(150 60% 35%), hsl(150 70% 50%));
+    --shadow-soft: 0 2px 20px -5px hsl(150 30% 20% / 0.1);
+    --shadow-medium: 0 4px 30px -8px hsl(150 30% 20% / 0.15);
+  }
+
+  .dark {
+    --background: 150 15% 8%;
+    --foreground: 150 10% 95%;
+
+    --card: 150 12% 12%;
+    --card-foreground: 150 10% 95%;
+
+    --popover: 150 12% 12%;
+    --popover-foreground: 150 10% 95%;
+
+    --primary: 150 60% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 150 50% 55%;
+
+    --secondary: 150 10% 18%;
+    --secondary-foreground: 150 10% 95%;
+
+    --muted: 150 10% 16%;
+    --muted-foreground: 150 8% 60%;
+
+    --accent: 35 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 150 60% 50%;
+    --warning: 35 85% 60%;
+    --error: 0 70% 55%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 10% 20%;
+    --input: 150 10% 20%;
+    --ring: 150 60% 45%;
+
+    --chart-1: 150 60% 45%;
+    --chart-2: 35 85% 60%;
+    --chart-3: 200 70% 50%;
+    --chart-4: 280 65% 55%;
+    --chart-5: 25 75% 55%;
+
+    --gradient-eco: linear-gradient(135deg, hsl(150 60% 35%), hsl(150 70% 45%));
+    --shadow-soft: 0 2px 20px -5px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 30px -8px hsl(0 0% 0% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .gradient-eco {
+    background: var(--gradient-eco);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+}
